@@ -41,12 +41,14 @@ module.exports = {
             '<th>id</th>'+
             '<th>name</th>'+
             '<th>expression</th>'+
+            '<th>answer</th>'+
             '<th>time</th>';
         let i = 0;
         while (i < topics.length) {
             list = list + `<tr>`+`<td>${sanitizeHtml(topics[i].id)}</td>`
                 +`<td>${sanitizeHtml(topics[i].name)}</td>`
                 +`<td>${sanitizeHtml(topics[i].expression)}</td>`
+                +`<td>${sanitizeHtml(topics[i].answer)}</td>`
                 +`<td>${sanitizeHtml(topics[i].time)}</td>`+`</tr>`;
             i = i + 1;
         }

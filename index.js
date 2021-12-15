@@ -13,9 +13,9 @@ app.use(express.urlencoded({ extended: true}));
 
 //임시 데이터
 const history = [
-    { id: 2021310001, name: "sample1", time: "2021-10-29T11:32:25.001Z", expression: "30*(4/2+1)" },
-    { id: 2021310002, name: "sample2", time: "2021-11-17T06:14:09.001Z", expression: "1+1" },
-    { id: 2021310003, name: "sample3", time: "2021-11-25T12:46:21.001Z", expression: "9-2*3" },
+    { id: 2021310001, name: "sample1", time: "2021-10-29 11:32:25 +09:00", expression: "30*(4/2+1)", answer: "90" },
+    { id: 2021310002, name: "sample2", time: "2021-11-17 16:14:09 +09:00", expression: "1+1", answer: "2" },
+    { id: 2021310003, name: "sample3", time: "2021-11-25 12:46:21 +09:00", expression: "9-2*3", answer: "3" },
 ];
 
 function PageReload() {
@@ -125,10 +125,10 @@ app.get("/api/history", (req, res) => {
 app.post("/api/history/add", (req, res) => {
 
     // 구조분해를 통해 req 내용 추출
-    const { id, name, time, expression } = req.body
+    const { id, name, time, expression, answer } = req.body.args
 
     //const user = history.concat({id, name, time, expression});
-    history.push({id, name, time, expression});
+    history.push({id, name, time, expression, answer});
     //console.log(`Add id:${id} name:${name} time:${time} exp:${expression}`);
 
     res.json({ok: true, history: history})
