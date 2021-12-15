@@ -1,6 +1,6 @@
 const sanitizeHtml = require('sanitize-html');
 
-module.exports = {//함수들 배열
+module.exports = {
     HTML: function (title, list) {
         return `
     <!doctype html>
@@ -23,7 +23,7 @@ module.exports = {//함수들 배열
             '<th>expression</th>'+
             '<th>time</th>';
         let i = 0;
-        while (i < topics.length) { //객체로 전달 받은 것에서 각각의 id와 title을 뿌려줌.
+        while (i < topics.length) {
             list = list + `<tr>`+`<td>${sanitizeHtml(topics[i].id)}</td>`
                 +`<td>${sanitizeHtml(topics[i].name)}</td>`
                 +`<td>${sanitizeHtml(topics[i].expression)}</td>`
