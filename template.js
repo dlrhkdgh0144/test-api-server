@@ -11,14 +11,33 @@ module.exports = {
       <meta HTTP-EQUIV="refresh" CONTENT="1">
     </head>
     <body>
-      <h1 style="text-align: center">Dashboard</h1>
+      <h1 class="title" style="text-align: center">Dashboard</h1>
       ${list}
     </body>
+    <style>
+        .title{
+            margin: 10px;
+            padding: 20px;
+        }
+        table{
+            width: 100%;
+            margin: auto;
+            text-align: center;
+            border: 1px solid;
+        }
+        th{
+            background-color: darkgray;
+            padding: 10px;
+        }
+        tr{
+            padding: 10px;
+        }
+    </style>
     </html>
     `;
     },
     list: function (topics) {
-        let list = '<table style="text-align: center" width="80%" margin="auto">' +
+        let list = '<table>' +
             '<th>id</th>'+
             '<th>name</th>'+
             '<th>expression</th>'+
