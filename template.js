@@ -29,8 +29,8 @@ module.exports = {
             background-color: darkgray;
             padding: 10px;
         }
-        tr{
-            padding: 10px;
+        td{
+            padding: 5px;
         }
     </style>
     </html>

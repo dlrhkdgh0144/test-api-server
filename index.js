@@ -18,6 +18,9 @@ const history = [
     { id: 2021310003, name: "sample3", time: "2021-11-25T12:46:21.001Z", expression: "9-2*3" },
 ];
 
+function PageReload() {
+    (location || window.location || document.location).reload();
+}
 /**
  * 파라미터 변수 뜻
  * req : request 요청
@@ -126,9 +129,10 @@ app.post("/api/history/add", (req, res) => {
 
     //const user = history.concat({id, name, time, expression});
     history.push({id, name, time, expression});
-    console.log(`Add id:${id} name:${name} time:${time} exp:${expression}`);
+    //console.log(`Add id:${id} name:${name} time:${time} exp:${expression}`);
 
     res.json({ok: true, history: history})
+    //PageReload();
 })
 
 /**
