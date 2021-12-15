@@ -130,15 +130,14 @@ app.post("/api/history/add", (req, res) => {
     // 구조분해를 통해 req 내용 추출
     const { id, name, time, expression, answer } = req.body.args
 
-    history.push({id, name, time, expression, answer});
-    //console.log(`Add id:${id} name:${name} time:${time} exp:${expression}`);
-
     // If request connection establish then reply by success message
-    if(expression=="Server connection established"||answer=="Server connection established"){
+    if(expression==="Server connection established" || answer==="Server connection established"){
         res.json({ok: true, message: `${name} :${id} connect success!! (${time})`});
     }
-    else res.json({ok: true, history: history})
-    //PageReload();
+    else {
+        history.push({id, name, time, expression, answer});
+        res.json({ok: true, history: history})
+    }
 })
 
 /**
