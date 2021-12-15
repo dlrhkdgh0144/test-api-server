@@ -18,8 +18,11 @@ const history = [
     { id: 2021310003, name: "sample3", time: "2021-11-25 12:46:21 +09:00", expression: "9-2*3", answer: "3" },
 ];
 
+// Temporary function for page reload but doesn't work
 function PageReload() {
-    (location || window.location || document.location).reload();
+    const docRef = useRef(document);
+    docRef.reload();
+    //(location || window.location || document.location).reload();
 }
 /**
  * 파라미터 변수 뜻
@@ -127,11 +130,14 @@ app.post("/api/history/add", (req, res) => {
     // 구조분해를 통해 req 내용 추출
     const { id, name, time, expression, answer } = req.body.args
 
-    //const user = history.concat({id, name, time, expression});
     history.push({id, name, time, expression, answer});
     //console.log(`Add id:${id} name:${name} time:${time} exp:${expression}`);
 
-    res.json({ok: true, history: history})
+    // If request connection establish then reply by success message
+    if(expression=="Server connection established"||answer=="Server connection established"){
+        res.json({ok: true, message: `${name} :${id} connect success!! (${time})`});
+    }
+    else res.json({ok: true, history: history})
     //PageReload();
 })
 

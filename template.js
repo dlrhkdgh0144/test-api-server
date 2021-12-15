@@ -37,7 +37,7 @@ module.exports = {
     `;
     },
     list: function (topics) {
-        let list = '<table>' +
+        let list = '<table id="dashboard">' +
             '<th>id</th>'+
             '<th>name</th>'+
             '<th>expression</th>'+
