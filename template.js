@@ -8,16 +8,17 @@ module.exports = {
     <head>
       <title>Monitoring Server - ${title}</title>
       <meta charset="utf-8">
+      <meta HTTP-EQUIV="refresh" CONTENT="1">
     </head>
     <body>
-      <h1>Dashboard</h1>
+      <h1 style="text-align: center">Dashboard</h1>
       ${list}
     </body>
     </html>
     `;
     },
     list: function (topics) {
-        let list = '<table>' +
+        let list = '<table style="text-align: center" width="80%" margin="auto">' +
             '<th>id</th>'+
             '<th>name</th>'+
             '<th>expression</th>'+

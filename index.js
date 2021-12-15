@@ -13,9 +13,9 @@ app.use(express.urlencoded({ extended: true}));
 
 //임시 데이터
 const history = [
-    { id: 2020310001, name: "유저1", time: "2021-10-29T11:32:25.001Z", expression: "30*(4/2+1)" },
-    { id: 2020310002, name: "유저2", time: "2021-11-17T06:14:09.001Z", expression: "1+1" },
-    { id: 2020310003, name: "유저3", time: "2021-11-25T12:46:21.001Z", expression: "9-2*3" },
+    { id: 2021310001, name: "sample1", time: "2021-10-29T11:32:25.001Z", expression: "30*(4/2+1)" },
+    { id: 2021310002, name: "sample2", time: "2021-11-17T06:14:09.001Z", expression: "1+1" },
+    { id: 2021310003, name: "sample3", time: "2021-11-25T12:46:21.001Z", expression: "9-2*3" },
 ];
 
 /**
