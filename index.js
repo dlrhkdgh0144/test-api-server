@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
 
     //User 데이터 반환
 
-    const title = "Title"
+    const title = "Dashboard"
     const list = template.list(history);
     const html = template.HTML(title,list);
     //res.writeHead(200);
@@ -57,26 +57,29 @@ app.get("/api/history", (req, res) => {
     res.writeHead(200);
     res.json({ok: true, history: history});
 })
-//
-// /**
-//  * @path {GET} http://localhost:3000/api/history/user?user_id=1
-//  * @description Query Params 요청 데이터 값이 있고 반환 값이 있는 GET Method
-//  *
-//  *  Query Params 방식
-//  *  user 뒤에 user_id변수를 통해 값을 찾아 올수 있다.
-//  *  &를 통해 두번째 변수를 받아서 사용할 수 있다.(/user?user_id=1&name="유저1")
-//  *
-//  */
-// app.get("/api/history/user", (req, res) => {
-//
-//     const user_id = req.query.id
-//
-//     //filter라는 함수는 자바스크립트에서 배열 함수이다. 필터링을 할때 많이 사용된다 필터링한 데이터를 새로운 배열로 반환한다.
-//     const filtered = history.filter(data => data.id == user_id);
-//
-//     res.json({ok: false, history: filtered})
-// })
-//
+
+/**
+ * @path {GET} http://localhost:3000/api/history/user?user_id=1
+ * @description Query Params 요청 데이터 값이 있고 반환 값이 있는 GET Method
+ *
+ *  Query Params 방식
+ *  user 뒤에 user_id변수를 통해 값을 찾아 올수 있다.
+ *  &를 통해 두번째 변수를 받아서 사용할 수 있다.(/user?user_id=1&name="유저1")
+ *
+ */
+app.get("/api/history/user", (req, res) => {
+
+    const user_id = req.query.id
+
+    //filter라는 함수는 자바스크립트에서 배열 함수이다. 필터링을 할때 많이 사용된다 필터링한 데이터를 새로운 배열로 반환한다.
+    const filtered = history.filter(data => data.id == user_id);
+
+    const title = "Search "+user_id;
+    const list = template.list(filtered);
+    const html = template.HTML(title,list);
+    res.send(html);
+})
+
 // /**
 //  * @path {GET} http://localhost:3000/api/history/userBody
 //  * @description Body 요청 데이터 값이 있고 반환 값이 있는 GET Method
